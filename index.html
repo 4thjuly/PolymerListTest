@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>PolymerListTest</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="bower_components/platform/platform.js"></script>
+  <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
+  <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+  <link rel="import" href="bower_components/core-list/core-list.html">
+  <link rel="import" href="bower_components/google-signin/google-signin.html">
+</head>
+
+<body unresolved>
+  
+  <polymer-element name="app-element">
+  
+    <template>
+      <style>    
+        :host {
+          box-sizing: border-box;
+          background-color: #f0f0f0;
+          width: 100%;
+          height: 100%;
+          margin: 0px;
+          position: absolute;
+          display:grid;
+          grid-template-rows: Auto 1fr;
+          grid-template-columns: 100%;
+        }
+        #core_toolbar {
+          grid-row: 1;
+          height: 100%;
+          width: 100%;
+          background-color: lightsteelblue;
+        }
+        #content {
+          grid-row: 2;
+          height: 100%;
+          width: 100%;
+          padding: 10px;
+          background-color: #f0f0f0;
+        }
+      </style>
+  
+      <div id="outer">
+        <core-toolbar id="core_toolbar">
+          <core-icon-button icon="menu" id="core_icon_button"></core-icon-button>
+          <google-signin clientId="480399353134-9cb923q089l5kltffiq8obuccdk20888.apps.googleusercontent.com" scopes="https://www.googleapis.com/auth/drive.readonly"></google-signin>
+          <button>Files</button>
+          <div id="div" flex>Toolbar</div>
+        </core-toolbar>
+        <!--core-list data="{{words}}" height="80">
+          <template repeat>
+            <div class="{{ {selected: selected} | tokenList }}">Item {{ }}</div>
+          </template>
+        </core-list-->
+        <!--core-list data="{{words}}" height="80">
+          <template repeat="{{word in words}}">
+            <div class="{{ {selected: selected} | tokenList }}">List row: {{word}} ({{word.length}})</div>
+          </template>
+        </core-list-->
+        <ul>
+          <template repeat="{{word in words}}">
+            <li>Item: {{word}}</li>
+          </template>
+        </ul>
+      </div>
+  
+    </template>
+  
+    <script>
+      Polymer('app-element', { 
+        ready: function() {
+          // this.data = [ {name: 'foo'}, {name: 'bar'}, {name: 'baz'}, {name: 'fred'} ];
+          this.words = [ 'this', 'is', 'a', 'test'];
+        }
+      });
+    </script>
+  
+  </polymer-element>
+  
+  <app-element></app-element>
+    
+  <script src="main.js"></script>
+</body>
+</html>

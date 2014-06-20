@@ -1,0 +1,14 @@
+{
+  "name": "PolymerListTest",
+  "description": "",
+  "homepage": "",
+  "keywords": [
+  ],
+  "author": "",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master",
+    "core-elements": "Polymer/core-elements#master",
+    "google-signin": "GoogleWebComponents/google-signin#master"
+  }
+}
